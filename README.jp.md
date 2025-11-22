@@ -1,3 +1,5 @@
+[English](README.md) | [한국어](README.kr.md)
+
 # Mahjong Soul Link Changer (雀魂リンク変換器)
 
 このChrome拡張機能は、設定に基づいて雀魂のゲームURLをグローバル、韓国、日本サーバー間で自動的にリダイレクトします。

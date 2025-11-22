@@ -1,3 +1,5 @@
+[English](README.md) | [日本語](README.jp.md)
+
 # Mahjong Soul Link Changer (작혼 링크 변환기)
 
 이 크롬 확장 프로그램은 사용자의 설정에 따라 작혼 게임 URL을 글로벌, 한국, 일본 서버 간에 자동으로 변환해줍니다.
