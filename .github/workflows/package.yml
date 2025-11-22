@@ -1,0 +1,26 @@
+name: Package Extension
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Zip
+        run: |
+          cd src
+          zip -r ../mahjongsoul-link-changer.zip .
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-package
+          path: mahjongsoul-link-changer.zip
