@@ -4,6 +4,8 @@
 
 This Chrome extension automatically redirects Mahjong Soul game URLs between the Global, Korean, and Japanese servers based on your preference.
 
+> **Notice**: A new extension will be registered at https://chromewebstore.google.com/detail/ecjkkppiddmajmohljjapkndjehebphp/
+
 ## Features
 
 - **Multi-Server Support**: Easily switch between Global (`mahjongsoul.game.yo-star.com`), Korean (`mahjongsoul.game.yo-star.com/kr`), and Japanese (`game.mahjongsoul.com`) servers.

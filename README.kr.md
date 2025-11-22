@@ -4,6 +4,8 @@
 
 이 크롬 확장 프로그램은 사용자의 설정에 따라 작혼 게임 URL을 글로벌, 한국, 일본 서버 간에 자동으로 변환해줍니다.
 
+> **알림**: 새로운 확장프로그램이 https://chromewebstore.google.com/detail/ecjkkppiddmajmohljjapkndjehebphp/ 에 등록될 예정입니다.
+
 ## 기능
 
 - **다중 서버 지원**: 글로벌(`mahjongsoul.game.yo-star.com`), 한국(`mahjongsoul.game.yo-star.com/kr`), 일본(`game.mahjongsoul.com`) 서버 간을 쉽게 전환할 수 있습니다.

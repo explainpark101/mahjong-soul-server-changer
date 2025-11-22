@@ -4,6 +4,8 @@
 
 このChrome拡張機能は、設定に基づいて雀魂のゲームURLをグローバル、韓国、日本サーバー間で自動的にリダイレクトします。
 
+> **お知らせ**: 新しい拡張機能が https://chromewebstore.google.com/detail/ecjkkppiddmajmohljjapkndjehebphp/ に登録される予定です。
+
 ## 機能
 
 - **マルチサーバー対応**: グローバル(`mahjongsoul.game.yo-star.com`)、韓国(`mahjongsoul.game.yo-star.com/kr`)、日本(`game.mahjongsoul.com`)サーバー間を簡単に切り替えることができます。
