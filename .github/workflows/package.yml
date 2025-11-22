@@ -24,3 +24,16 @@ jobs:
         with:
           name: extension-package
           path: mahjongsoul-link-changer.zip
+
+      - name: Create Release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "mahjongsoul-link-changer.zip"
+          tag: "release"
+          name: "Latest Build"
+          body: "Automatic build from main branch."
+          allowUpdates: true
+          removeArtifacts: true
+          replacesArtifacts: true
+          token: ${{ secrets.GITHUB_TOKEN }}
