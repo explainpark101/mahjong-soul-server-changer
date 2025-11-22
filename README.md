@@ -1,6 +1,6 @@
 [한국어](README.kr.md) | [日本語](README.jp.md)
 
-# Mahjong Soul Link Changer (作혼 링크 변환기)
+# Mahjong Soul Link Changer
 
 This Chrome extension automatically redirects Mahjong Soul game URLs between the Global, Korean, and Japanese servers based on your preference.
 
