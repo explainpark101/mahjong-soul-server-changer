@@ -1,0 +1,23 @@
+{
+    "extName": {
+        "message": "Mahjong Soul Server Link Changer"
+    },
+    "extDesc": {
+        "message": "Redirects Mahjong Soul links between Global and KR servers."
+    },
+    "title": {
+        "message": "Mahjong Soul Server Link Redirection"
+    },
+    "labelGlobal": {
+        "message": "Global"
+    },
+    "labelKR": {
+        "message": "KR"
+    },
+    "labelJP": {
+        "message": "JP"
+    },
+    "currentTarget": {
+        "message": "Selected Server: "
+    }
+}

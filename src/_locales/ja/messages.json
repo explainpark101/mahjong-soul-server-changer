@@ -1,0 +1,23 @@
+{
+    "extName": {
+        "message": "雀魂リンク変換器"
+    },
+    "extDesc": {
+        "message": "雀魂のリンクをグローバル/韓国/日本サーバー間で変換します。"
+    },
+    "title": {
+        "message": "リンク変換"
+    },
+    "labelGlobal": {
+        "message": "グローバル"
+    },
+    "labelKR": {
+        "message": "韓国"
+    },
+    "labelJP": {
+        "message": "日本"
+    },
+    "currentTarget": {
+        "message": "選択されたサーバー"
+    }
+}

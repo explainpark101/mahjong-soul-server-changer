@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extension Screenshot Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #333;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .screenshot-frame {
+            width: 1280px;
+            height: 800px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); /* Deep blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        /* Decorative Background Elements */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+        }
+        .c1 { width: 600px; height: 600px; top: -100px; left: -100px; }
+        .c2 { width: 400px; height: 400px; bottom: -50px; right: -50px; border-color: rgba(212, 175, 55, 0.05); }
+
+        /* Popup Mockup Styles (Adapted from popup.css) */
+        .mockup-body {
+            width: 320px;
+            padding: 0;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+            border: 2px solid #d4af37;
+            border-radius: 0;
+            overflow: hidden;
+            transform: scale(1.5); /* Scale up for visibility in large screenshot */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #2a2a4e 0%, #1a1a2e 100%);
+        }
+
+        .title {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #d4af37;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 18px;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 5px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .server-btn {
+            background: linear-gradient(to bottom, #4a4a6a, #2a2a4e);
+            border: 1px solid #d4af37;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            opacity: 0.4;
+            transform: scale(0.85);
+            flex: 1;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+        }
+
+        .server-btn.active {
+            opacity: 1;
+            transform: scale(1.02);
+            background: linear-gradient(to bottom, #5a2d82, #4a1a6a);
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+            border-color: #ffd700;
+        }
+
+        .status-box {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #4a4a6a;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        #status {
+            margin: 0;
+            font-size: 12px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <button onclick="setLocale('en')">English</button>
+        <button onclick="setLocale('ko')">Korean</button>
+        <button onclick="setLocale('ja')">Japanese</button>
+        <span style="margin-left: 10px;">Click buttons in mockup to toggle state</span>
+    </div>
+
+    <div class="screenshot-frame">
+        <div class="bg-circle c1"></div>
+        <div class="bg-circle c2"></div>
+
+        <div class="mockup-body">
+            <div class="container">
+                <h3 class="title" id="title">Link Redirection</h3>
+                <div class="button-container">
+                    <button class="server-btn" data-value="global" id="btn-global">Global</button>
+                    <button class="server-btn active" data-value="kr" id="btn-kr">KR</button>
+                    <button class="server-btn" data-value="jp" id="btn-jp">JP</button>
+                </div>
+                <div class="status-box">
+                    <p id="status">Selected Server: KR</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const locales = {
+            en: {
+                title: "Link Redirection",
+                labelGlobal: "Global",
+                labelKR: "KR",
+                labelJP: "JP",
+                currentTarget: "Selected Server: "
+            },
+            ko: {
+                title: "링크 변환",
+                labelGlobal: "글로벌",
+                labelKR: "한국",
+                labelJP: "일본",
+                currentTarget: "선택된 서버: "
+            },
+            ja: {
+                title: "リンク変換",
+                labelGlobal: "グローバル",
+                labelKR: "韓国",
+                labelJP: "日本",
+                currentTarget: "選択されたサーバー: "
+            }
+        };
+
+        let currentLocale = 'en';
+
+        function setLocale(lang) {
+            currentLocale = lang;
+            const texts = locales[lang];
+            document.getElementById('title').textContent = texts.title;
+            document.getElementById('btn-global').textContent = texts.labelGlobal;
+            document.getElementById('btn-kr').textContent = texts.labelKR;
+            document.getElementById('btn-jp').textContent = texts.labelJP;
+            updateStatus();
+        }
+
+        // Mockup interactivity
+        const buttons = document.querySelectorAll('.server-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                buttons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                updateStatus();
+            });
+        });
+
+        function updateStatus() {
+            const activeBtn = document.querySelector('.server-btn.active');
+            const val = activeBtn.getAttribute('data-value');
+            const texts = locales[currentLocale];
+
+            let serverName = "";
+            if (val === 'global') serverName = texts.labelGlobal;
+            else if (val === 'kr') serverName = texts.labelKR;
+            else if (val === 'jp') serverName = texts.labelJP;
+
+            document.getElementById('status').textContent = texts.currentTarget + serverName;
+        }
+
+        // Initialize
+        setLocale('ko'); // Default to Korean as per user context
+    </script>
+</body>
+</html>

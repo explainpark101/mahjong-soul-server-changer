@@ -1,0 +1,23 @@
+{
+    "extName": {
+        "message": "작혼 서버 링크 자동 변환기"
+    },
+    "extDesc": {
+        "message": "작혼 링크를 글로벌/한국 서버 간에 변환합니다."
+    },
+    "title": {
+        "message": "작혼 서버 링크 자동 변환"
+    },
+    "labelGlobal": {
+        "message": "글로벌"
+    },
+    "labelKR": {
+        "message": "한국"
+    },
+    "labelJP": {
+        "message": "일본"
+    },
+    "currentTarget": {
+        "message": "선택된 서버"
+    }
+}
