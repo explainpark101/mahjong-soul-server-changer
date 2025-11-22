@@ -35,7 +35,7 @@ jobs:
           artifacts: "mahjongsoul-link-changer.zip"
           tag: "release"
           name: "Latest Build"
-          body: "Automatic build from main branch."
+          body: "install chrome extension by [chrome://extensions](chrome://extensions)"
           allowUpdates: true
           removeArtifacts: true
           replacesArtifacts: true
